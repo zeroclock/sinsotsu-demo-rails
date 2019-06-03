@@ -6,9 +6,42 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
 
   <body>
+    <nav class="navbar navbar-dark bg-primary text-light">
+      <a class="navbar-brand navbar-brand-center header-link" href="#">講義用デモサイト</a>
+    </nav>
+    
+    <div class="container">
+      <div class="post-form-container">
+        <div class="form-group blog-post">
+          〇〇さん
+          <textarea id="post-content" class="form-control" placeholder="投稿内容（〇〇文字以内）"></textarea>
+          <button type="button" class="btn btn-primary">投稿</button>
+        </div>       
+      </div>
+      <div class="panel panel-primary">
+      	<div class="panel-heading">
+      		ブログ一覧
+      	</div>
+      	<div class="panel-body">
+      		ああああああ
+      	</div>
+      </div>
+    </div>
+    
     <%= yield %>
+    
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+      </div>
+    </footer>
+
   </body>
 </html>
