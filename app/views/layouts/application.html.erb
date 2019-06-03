@@ -18,24 +18,8 @@
     </nav>
     
     <div class="container">
-      <div class="post-form-container">
-        <div class="form-group blog-post">
-          〇〇さん
-          <textarea id="post-content" class="form-control" placeholder="投稿内容（〇〇文字以内）"></textarea>
-          <button type="button" class="btn btn-primary">投稿</button>
-        </div>       
-      </div>
-      <div class="panel panel-primary">
-      	<div class="panel-heading">
-      		ブログ一覧
-      	</div>
-      	<div class="panel-body">
-      		ああああああ
-      	</div>
-      </div>
+        <%= yield %>
     </div>
-    
-    <%= yield %>
     
     <footer class="footer">
       <div class="container">
