@@ -1,0 +1,26 @@
+<% provide(:title, 'ユーザー一覧') %>
+
+<ul class="col-md-6 users">
+    <%= will_paginate %>
+    
+    <div class="panel panel-primary">
+    	<div class="panel-heading">
+    		ユーザー一覧
+    	</div>
+    	<% @users.each do |user| %>
+            <div class="panel-body" style="border-bottom: 1px solid gray">
+                <%= link_to user.name, user %>
+                <div class="pull-right">
+                <% if current_user?(user) %>
+                    <%= link_to "編集", edit_user_path(user), class: "btn btn-info" %>
+                <% end %>
+                <% if current_user.admin? && !current_user?(user) %>
+                    <%= link_to "削除", user, method: :delete, data: { confirm: "削除してよろしいですか？" } , class: "btn btn-danger" %>
+                <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    
+    <%= will_paginate %>
+</ul>
