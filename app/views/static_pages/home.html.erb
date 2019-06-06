@@ -1,20 +1,45 @@
 <% provide(:title, "") %>
 
 <% if logged_in? %>
-    <div class="post-form-container">
-      <div class="form-group blog-post">
-        <textarea id="post-content" class="form-control" placeholder="投稿内容（〇〇文字以内）"></textarea>
-        <button type="button" class="btn btn-primary">投稿</button>
-      </div>       
+    <div class="row">
+      <div class="col-md-12">
+        <section class="post-form-container">
+          <%= render 'shared/post_form' %>
+        </section>
+        <section class="post-form-user-icon">
+          <div class="user-icon"><img src="https://previews.123rf.com/images/valex113/valex1131506/valex113150600122/41223698-%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%AE%E8%83%8C%E6%99%AF%E3%80%82%E6%AD%A3%E6%96%B9%E5%BD%A2%E3%81%AE%E6%8A%BD%E8%B1%A1%E7%9A%84%E3%81%AA%E3%83%86%E3%82%AF%E3%82%B9%E3%83%81%E3%83%A3%E3%81%AE%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%80%82%E3%83%90%E3%83%8A%E3%83%BC%E3%80%81%E3%83%9D%E3%82%B9%E3%82%BF%E3%83%BC%E3%80%81%E3%83%81%E3%83%A9%E3%82%B7%E3%81%AE%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3-%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%80%82.jpg"></div>
+          <p class="user-name"><%= current_user.name %></p>
+        </section>
+        <div class="clearfix"></div>
+      </div>
     </div>
+    
     <div class="panel panel-primary">
     	<div class="panel-heading">
     		ブログ一覧
     	</div>
-    	<div class="panel-body">
-    		ああああああ
-    	</div>
+    	<% unless @posts.nil? %>
+      	<% @posts.each do |post| %>
+            <div class="panel-body" style="border-bottom: 1px solid gray">
+              <div class="post-title">
+                <%= link_to post.title, post %>
+              </div>
+              <div class="post-main">
+                <p class="post-content"><%= post.content %></p>
+                <div class="post-footer">
+                  <span class="user-box"><%= post.user.name %></span>
+                </div>
+              </div>
+            </div>
+        <% end %>
+    	<% end %>
     </div>
+    
+    <% unless @posts.nil? %>
+    <div class="pagination-container">
+      <%= will_paginate @posts %>
+    </div>
+    <% end %>
 <% else %>
 
 <%= render 'shared/login_form' %>

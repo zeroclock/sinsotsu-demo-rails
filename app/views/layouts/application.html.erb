@@ -17,7 +17,7 @@
     <nav class="navbar navbar-default">
     	<div class="container-fluid">
     		<div class="navbar-header">
-    			<a class="navbar-brand" href="#">講義用デモサイト</a>
+    			<%= link_to "講義用デモサイト", root_path, class: "navbar-brand" %>
     		</div>
     		
     		<div class="collapse navbar-collapse" id="navbarEexample">
@@ -44,12 +44,6 @@
         <%= yield %>
         <%= debug(params) if Rails.env.development? %>
     </div>
-    
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-      </div>
-    </footer>
 
   </body>
 </html>
