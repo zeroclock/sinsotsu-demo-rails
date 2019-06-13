@@ -201,9 +201,17 @@ input {
   padding: 5px 10px;
 }
 
-.user-box {
-  padding: 3px 5px;
-  background-color: #337AB7;
-  border-radius: 3px;
-  color: white;
+/* 投稿内容表示 */
+.post-container {
+  width: 100%;
+  padding: 20px 10px;
+}
+
+.post-show-info {
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.post-show-content {
+  margin-bottom: 10px;
 }

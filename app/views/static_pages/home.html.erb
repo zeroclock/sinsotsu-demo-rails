@@ -27,7 +27,7 @@
               <div class="post-main">
                 <p class="post-content"><%= simple_format(h(post.content)) %></p>
                 <div class="post-footer">
-                  <span class="user-box"><%= post.user.name %></span>
+                  <%= post.user.name %> | <%= post.created_at.strftime('%Y年%m月%d日（%a）') %>
                   <% if current_user == post.user %>
                     <%= link_to "削除",  post, method: :delete, class: "btn btn-danger", data: { confirm: '投稿を削除してよろしいですか' } %>
                   <% end %>

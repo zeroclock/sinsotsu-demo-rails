@@ -1,5 +1,12 @@
 <% provide(:title, @post.title) %>
 <h1><%= @post.title %></h1>
 
-<%= @post.content %>
-<%= @post.created_at %>
+<div class="post-container">
+    <div class="post-show-info">
+        投稿者：<%= @post.user.name %><br>
+        投稿日：<%= @post.created_at.strftime('%Y年%m月%d日（%a） %H:%M') %>
+    </div>
+    <div class="post-show-content">
+        <%= @post.content %>
+    </div>
+</div>
