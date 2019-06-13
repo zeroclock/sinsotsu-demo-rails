@@ -8,6 +8,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  font-family: "M PLUS 1p", sans-serif;;
 }
 h1 {
   text-align: center;
@@ -27,11 +28,21 @@ h1 {
     box-shadow:         3px 3px 5px 6px #ccc;
 }
 
-.container {
-    position:relative;
-    background-color: white;
-    max-width: 750px;
-    margin-top: 15px;
+.navbar a {
+  color: white;
+}
+
+.navbar a:hover {
+  opacity: 0.8;
+}
+
+.navbar li a:hover {
+  background: none;
+}
+
+.login-user-info {
+  margin-left: 20px;
+  padding: 0 10px;
 }
 
 .post-form-container {
@@ -88,6 +99,10 @@ h1 {
   resize: vertical;
 }
 
+textarea {
+  height: 200px;
+}
+
 .user-name {
   text-align: center;
   vertical-align: bottom;
@@ -103,6 +118,8 @@ h1 {
 }
 
 .post-footer {
+  padding-right: 5px;
+  margin-top: 5px;
   text-align: right;
 }
 
@@ -178,18 +195,60 @@ input {
 /* Users index */
 
 .users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid gray;
-  }
+  // list-style: none;
+  // margin: 0;
+  // li {
+  //   overflow: auto;
+  //   padding: 10px 0;
+  //   border-bottom: 1px solid gray;
+  // }
+}
+
+.user-container {
+  font-size: 1.3em;
+  margin: auto;
+  margin: 5px 20px;
+  padding: 10px 20px;
+  border: 1px solid gray;
+  text-align: center;
 }
 
 /* 投稿一覧 */
+.post-list-container {
+  margin-top: 20px;
+}
+
+.post-list-header {
+  width: 100%;
+  background-color: lightblue;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px 20px;
+}
+
+.post-main-container {
+  margin: 5px;
+}
+
+.post-list {
+  padding: 12px 20px;
+}
+
+.post-desc {
+  border-radius: 7px;
+  padding: 10px;
+  border: 1px solid gray;
+  max-height: 200px;
+  overflow: hidden;
+}
+
 .post-title {
+  padding: 5px;
   max-width: 350px;
+}
+
+.post-title h3 {
+  font-size: 20px;
 }
 
 .post-content {
@@ -210,4 +269,14 @@ input {
 
 .post-show-content {
   margin-bottom: 10px;
+  border: 1px solid gray;
+  padding: 10px 30px;
+  border-radius: 15px;
+  font-size: 1.3em;
+}
+
+/* ユーザー情報登録フォーム */
+.user-form {
+  padding: 8px 20px;
+  border-radius: 12px;
 }

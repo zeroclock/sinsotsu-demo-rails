@@ -6,6 +6,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
@@ -14,26 +16,24 @@
 
   <body>
     
-    <nav class="navbar navbar-default">
-    	<div class="container-fluid">
+    <nav class="navbar navbar-dark" style="background-color: #343A40;">
+    	<div class="container">
     		<div class="navbar-header">
     			<%= link_to "講義用デモサイト", root_path, class: "navbar-brand" %>
     		</div>
     		
-    		<div class="collapse navbar-collapse" id="navbarEexample">
     			<ul class="nav navbar-nav">
   			    <li><%= link_to "トップページ", root_path %></li>
     			  <% unless logged_in? %>
-    			    <li><%= link_to "会員登録", signup_path %></a></li>
-    			    <li><%= link_to "ログイン", login_path %></a></li>
+    			    <li><%= link_to fa_icon("user-plus")+" 会員登録", signup_path %></a></li>
+    			    <li><%= link_to fa_icon("sign-in")+" ログイン", login_path %></a></li>
     			  <% else %>
-    			    <li><%= link_to "ユーザー一覧", users_path %></li>
-    			    <li><%= link_to "設定", edit_user_path(current_user) %></li>
-    			    <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-    			    <p class="text-right" style="margin-top: 15px; width: 500px"><%= current_user.name %> さんでログインしています。</p>
+    			    <li><%= link_to fa_icon("user")+" ユーザー一覧", users_path %></li>
+    			    <li><%= link_to fa_icon("cog")+" 設定", edit_user_path(current_user) %></li>
+    			    <li class="login-user-info"><p class="text-right" style="margin-top: 15px; color: white; float: right;"><%= current_user.name %> さんでログインしています。</p></li>
+    			    <li><%= link_to fa_icon("sign-out")+" ログアウト", logout_path, method: :delete %></li>
     			  <% end %>
     			</ul>
-    		</div>
     	</div>
     </nav>
     

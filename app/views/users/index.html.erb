@@ -1,26 +1,39 @@
 <% provide(:title, 'ユーザー一覧') %>
+<div class="post-list-header">
+    <h2><%= fa_icon("users") %> ユーザー一覧</h2>
+</div>
 
-<ul class="col-md-6 users">
     <%= will_paginate %>
     
-    <div class="panel panel-primary">
-    	<div class="panel-heading">
-    		ユーザー一覧
-    	</div>
-    	<% @users.each do |user| %>
-            <div class="panel-body" style="border-bottom: 1px solid gray">
-                <%= link_to user.name, user %>
-                <div class="pull-right">
-                <% if current_user?(user) %>
-                    <%= link_to "編集", edit_user_path(user), class: "btn btn-info" %>
-                <% end %>
-                <% if current_user.admin? && !current_user?(user) %>
-                    <%= link_to "削除", user, method: :delete, data: { confirm: "削除してよろしいですか？" } , class: "btn btn-danger" %>
-                <% end %>
-                </div>
-            </div>
-        <% end %>
-    </div>
+    <!--<div class="panel panel-primary">-->
+    <!--	<div class="panel-heading">-->
+    <!--		ユーザー一覧-->
+    <!--	</div>-->
+    <!--	<% @users.each do |user| %>-->
+    <!--        <div class="panel-body" style="border-bottom: 1px solid gray">-->
+    <!--            <%= link_to user.name, user %>-->
+    <!--            <div class="pull-right">-->
+    <!--            <% if current_user?(user) %>-->
+    <!--                <%= link_to "編集", edit_user_path(user), class: "btn btn-info" %>-->
+    <!--            <% end %>-->
+    <!--            <% if current_user.admin? && !current_user?(user) %>-->
+    <!--                <%= link_to "削除", user, method: :delete, data: { confirm: "削除してよろしいですか？" } , class: "btn btn-danger" %>-->
+    <!--            <% end %>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    <% end %>-->
+    <!--</div>-->
+    
+   <% @users.each do |user| %> 
+        <div class="user-container">
+            <style <%= fa_icon("user")+user.name %> | <%= user.created_at.strftime('%Y年%m月%d日（%a）') %>
+            <% if current_user?(user) %>
+                <%= link_to "編集", edit_user_path(user), class: "btn btn-info" %>
+            <% end %>
+            <% if current_user.admin? && !current_user?(user) %>
+                <%= link_to "削除", user, method: :delete, data: { confirm: "削除してよろしいですか？" } , class: "btn btn-danger" %>
+            <% end %>
+        </div>
+    <% end %>
     
     <%= will_paginate %>
-</ul>
