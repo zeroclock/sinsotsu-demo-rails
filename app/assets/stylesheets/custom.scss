@@ -204,6 +204,10 @@ input {
   // }
 }
 
+.user-table {
+  margin-top: 20px;
+}
+
 .user-container {
   font-size: 1.3em;
   margin: auto;
@@ -211,6 +215,10 @@ input {
   padding: 10px 20px;
   border: 1px solid gray;
   text-align: center;
+}
+
+.user-createdat {
+  font-size: 0.8em;
 }
 
 /* 投稿一覧 */

@@ -17,13 +17,13 @@
   <body>
     
     <nav class="navbar navbar-dark" style="background-color: #343A40;">
-    	<div class="container">
+    	<div class="container" style="border-radius: none;">
     		<div class="navbar-header">
     			<%= link_to "講義用デモサイト", root_path, class: "navbar-brand" %>
     		</div>
     		
     			<ul class="nav navbar-nav">
-  			    <li><%= link_to "トップページ", root_path %></li>
+  			    <li><%= link_to fa_icon("home")+" トップページ", root_path %></li>
     			  <% unless logged_in? %>
     			    <li><%= link_to fa_icon("user-plus")+" 会員登録", signup_path %></a></li>
     			    <li><%= link_to fa_icon("sign-in")+" ログイン", login_path %></a></li>

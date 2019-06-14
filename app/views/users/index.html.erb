@@ -5,35 +5,34 @@
 
     <%= will_paginate %>
     
-    <!--<div class="panel panel-primary">-->
-    <!--	<div class="panel-heading">-->
-    <!--		ユーザー一覧-->
-    <!--	</div>-->
-    <!--	<% @users.each do |user| %>-->
-    <!--        <div class="panel-body" style="border-bottom: 1px solid gray">-->
-    <!--            <%= link_to user.name, user %>-->
-    <!--            <div class="pull-right">-->
-    <!--            <% if current_user?(user) %>-->
-    <!--                <%= link_to "編集", edit_user_path(user), class: "btn btn-info" %>-->
-    <!--            <% end %>-->
-    <!--            <% if current_user.admin? && !current_user?(user) %>-->
-    <!--                <%= link_to "削除", user, method: :delete, data: { confirm: "削除してよろしいですか？" } , class: "btn btn-danger" %>-->
-    <!--            <% end %>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    <% end %>-->
-    <!--</div>-->
-    
-   <% @users.each do |user| %> 
-        <div class="user-container">
-            <style <%= fa_icon("user")+user.name %> | <%= user.created_at.strftime('%Y年%m月%d日（%a）') %>
-            <% if current_user?(user) %>
-                <%= link_to "編集", edit_user_path(user), class: "btn btn-info" %>
+    <div class="user-table">
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID <%= link_to fa_icon("arrow-up"), users_path(key: 'id', sort: 'ASC') %> <%= link_to fa_icon("arrow-down"), users_path(key: 'id', sort: 'DESC') %></th>
+                <th>ユーザ名 <%= link_to fa_icon("arrow-up"), users_path(key: 'name', sort: 'ASC') %> <%= link_to fa_icon("arrow-down"), users_path(key: 'name', sort: 'DESC') %></th>
+                <th>登録日 <%= link_to fa_icon("arrow-up"), users_path(key: 'created_at', sort: 'ASC') %> <%= link_to fa_icon("arrow-down"), users_path(key: 'created_at', sort: 'DESC') %></th>
+                <th>　　</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                    <th><%= user.id %></th>
+                    <td><%= user.name %></td>
+                    <td><%= user.created_at.strftime('%Y年%m月%d日（%a）') %></td>
+                    <td>
+                        <% if current_user?(user) %>
+                            <%= link_to "編集", edit_user_path(user), class: "btn btn-info" %>
+                        <% end %>
+                        <% if current_user.admin? && !current_user?(user) %>
+                            <%= link_to "削除", user, method: :delete, data: { confirm: "削除してよろしいですか？" } , class: "btn btn-danger" %>
+                        <% end %>
+                    </td>
+                </tr>
             <% end %>
-            <% if current_user.admin? && !current_user?(user) %>
-                <%= link_to "削除", user, method: :delete, data: { confirm: "削除してよろしいですか？" } , class: "btn btn-danger" %>
-            <% end %>
-        </div>
-    <% end %>
+        </tbody>
+        </table>
+    </div>
     
     <%= will_paginate %>
